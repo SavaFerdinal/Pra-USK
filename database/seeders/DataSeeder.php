@@ -35,6 +35,7 @@ class DataSeeder extends Seeder
 
         User::create([
             'kode' => 'A001',
+            'nis' => '112233',
             'fullname' => 'Neina Rahma Sari',
             'username' => 'Neina',
             'password' => Hash::make('password'),
@@ -48,6 +49,7 @@ class DataSeeder extends Seeder
 
         User::create([
             'kode' => 'A002',
+            'nis' => '223344',
             'fullname' => 'Sava Raisya Ferdinal',
             'username' => 'Sava',
             'password' => Hash::make('password'),
@@ -117,7 +119,7 @@ class DataSeeder extends Seeder
         ]);
 
         Buku::create([
-            'judul' => 'Bumi Series',
+            'judul' => 'Terbentuknya BPUPKI',
             'kategori_id' => 3,
             'penerbit_id' => 3,
             'pengarang' => 'Nino',

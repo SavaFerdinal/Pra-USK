@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
-class ProfileController extends Controller
+class IdentitasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +14,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('user.profile');
+        //
     }
 
     /**
@@ -70,27 +67,9 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $id = Auth::user()->id;
-        $imageName = time().'.'.$request->foto->extension();
-        $request->foto->move(public_path('img'), $imageName);
-        $user = User::find($id)->update($request->all());
-
-        if ($request->password != null) {
-            $user2 = User::find($id)->update([
-                'password' => Hash::make($request->password)
-            ]);
-        }
-
-        $user3 = User::find($id)->update([
-            'foto' => $imageName
-        ]);
-        
-        if ($user && $user2 && $user3) {
-            return redirect()->back()->with('status' , 'success')->with('message' , 'berhasil mengupdate profil');
-        }
-        return redirect()->back()->with('status' , 'danger')->with('message' , 'gagal mengupdate profil');
+        //
     }
 
     /**
