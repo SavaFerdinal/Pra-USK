@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Buku;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class KategoriController extends Controller
+class AdminDashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,10 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        $anggota = User::all()->count();
+        $buku = Buku::all()->count();
+
+        return view('admin.dashboard', compact('anggota', 'buku'));
     }
 
     /**

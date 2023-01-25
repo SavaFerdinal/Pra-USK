@@ -69,7 +69,7 @@
             </table>
             <div class="text-end">
                
-               <button class="btn btn-primary" type="submit">simpan</button>
+               <button class="btn btn-primary" type="submit">Update</button>
             </div>
          </form>
       </div>

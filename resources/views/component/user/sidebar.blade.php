@@ -1,4 +1,3 @@
-
     <li class="sidebar-title">Menu</li>
 
     <li class="sidebar-item active ">
@@ -10,7 +9,7 @@
 
     <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
-            <i class="bi bi-stack"></i>
+            <i class="bi bi-bookmarks-fill"></i>
             <span>Peminjaman Buku</span>
         </a>
         <ul class="submenu ">
@@ -25,7 +24,7 @@
 
     <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
-            <i class="bi bi-collection-fill"></i>
+            <i class="bi bi-journal-check"></i>
             <span>Pengembalian Buku</span>
         </a>
         <ul class="submenu ">
@@ -40,34 +39,33 @@
 
     <li class="sidebar-item  has-sub">
         <a href="#" class='sidebar-link'>
-            <i class="bi bi-collection-fill"></i>
+            <i class="bi bi-envelope-fill"></i>
             <span>Pesan</span>
         </a>
         <ul class="submenu ">
             <li class="submenu-item ">
                 <a href="{{ route('user.pesan.masuk') }}">Pesan masuk
-                <span class="badge bg-light-danger badge-pill badge-round float-right mt-50">
-                         
-                </span>
-            </a>
+                </a>
             </li>
             <li class="submenu-item ">
-                <a href="{{ route('user.pesan.terkirim') }}">Pesan terkirim</a>
+                <a href="{{ route('user.pesan.terkirim') }}">Kirim Pesan</a>
             </li>
         </ul>
     </li>
 
     <li class="sidebar-item  ">
         <a href="{{ route('user.profile') }}" class='sidebar-link'>
-            <i class="bi bi-file-earmark-medical-fill"></i>
+            <i class="bi bi-person-circle"></i>
             <span>Profile Saya </span>
         </a>
     </li>
 
     <li class="sidebar-item {{ request()->is('logout*') ? 'active' : '' }} ">
-        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-document.getElementById('logout-form').submit();" class="sidebar-link">
-            <i class="bi bi-arrow-left-square-fill"></i>
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();"
+            class="sidebar-link">
+            <i class="bi bi-door-open-fill"></i>
             <span>Logout</span>
         </a>
 
@@ -75,5 +73,3 @@ document.getElementById('logout-form').submit();" class="sidebar-link">
             @csrf
         </form>
     </li>
-
-    

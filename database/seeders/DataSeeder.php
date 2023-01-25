@@ -103,7 +103,7 @@ class DataSeeder extends Seeder
             'isbn' => '112233',
             'j_buku_baik' => '30',
             'j_buku_rusak' => '10',
-            'foto' => ''
+            'foto' => 'bumi.jpg'
         ]);
 
         Buku::create([
@@ -115,11 +115,11 @@ class DataSeeder extends Seeder
             'isbn' => '223344',
             'j_buku_baik' => '30',
             'j_buku_rusak' => '10',
-            'foto' => ''
+            'foto' => 'bigbang.jpg'
         ]);
 
         Buku::create([
-            'judul' => 'Terbentuknya BPUPKI',
+            'judul' => 'Lahirnya Pancasila',
             'kategori_id' => 3,
             'penerbit_id' => 3,
             'pengarang' => 'Nino',
@@ -127,7 +127,7 @@ class DataSeeder extends Seeder
             'isbn' => '334455',
             'j_buku_baik' => '30',
             'j_buku_rusak' => '10',
-            'foto' => ''
+            'foto' => 'pancasila.jpg'
         ]);
 
         // Pesan

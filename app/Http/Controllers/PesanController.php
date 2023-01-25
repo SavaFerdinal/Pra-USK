@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pesan;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,7 +48,18 @@ class PesanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $terkirim = Pesan::where('penerima_id', '!=', Auth::user()->id)->where('pengirim_id', Auth::user()->id)->get();
+        $penerima = User::where('role', 'admin')->get();
+        $terkirim = Pesan::create([
+            'penerima_id' => $request->penerima_id,
+            'pengirim_id' => $request->pengirim_id,
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+            'status' => 'terkirim',
+            'tanggal_kirim' => Carbon::now()
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -67,9 +79,14 @@ class PesanController extends Controller
      * @param  \App\Models\Pesan  $pesan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pesan $pesan)
+    public function edit(Request $request)
     {
-        //
+        $status = Pesan::where('id', $request->id)->first();
+        $status->update([
+            'status' => 'terbaca'
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -95,8 +112,11 @@ class PesanController extends Controller
      * @param  \App\Models\Pesan  $pesan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pesan $pesan)
+    public function destroy(Pesan $pesan, $id)
     {
-        //
+        $terkirim = Pesan::find($id);
+        $terkirim->delete();
+
+        return redirect()->back();
     }
 }

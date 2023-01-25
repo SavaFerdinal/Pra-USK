@@ -4,13 +4,13 @@
 @section('content')
 <div class="container">
 
-   <div class="card">
-       <div class="card-header">
-         <h4>Form Peminjaman</h4>
-       </div>
+    <div class="card-header">
+        <h3>Form Peminjaman</h3>
+    </div>
 
+   <div class="card">
        <div class="card-body">
-           <form action="{{ route('submit.peminjaman') }}" method="POST" class="form-group">
+           <form action="{{ route('user.submit.peminjaman') }}" method="POST" class="form-group">
             @csrf
                 <div class="mb-3">
                     <label>Nama Anggota</label>
@@ -31,7 +31,7 @@
                    <option >Pilih Opsi</option>
                
                    @foreach($buku as $b) 
-                   <option value="{{$b->id}}" {{ isset($buku_id) ? $buku_id ==$b->id ? "selected" : "" : "" }} >{{$b->judul}}</option>
+                   <option value="{{$b->id}}" {{ isset($buku_id) ? $buku_id == $b->id ? "selected" : "" : "" }} >{{$b->judul}}</option>
 
                    @endforeach
                </select>
@@ -52,8 +52,6 @@
            </form>
        </div>
    </div>
-
-
 
 </div>
 @endsection

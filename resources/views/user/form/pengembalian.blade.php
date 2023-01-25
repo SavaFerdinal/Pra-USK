@@ -4,11 +4,11 @@
 @section('content')
 <div class="container">
 
-   <div class="card">
-       <div class="card-header">
-         <h4>Form Pengembalian</h4>
-       </div>
+    <div class="card-header">
+        <h3>Form Pengembalian</h3>
+      </div>
 
+   <div class="card">
        <div class="card-body">
            <form action="{{ route('submit.pengembalian') }}" method="POST" class="form-group">
             @csrf
